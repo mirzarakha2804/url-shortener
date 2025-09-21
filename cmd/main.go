@@ -2,9 +2,10 @@ package main
 
 import (
 	"log"
+	"os"
 	"url-shortener/config"
 	"url-shortener/internal/handler"
-	"url-shortener/repository"
+	"url-shortener/internal/repository"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -28,5 +29,5 @@ func main() {
 
 	r.GET("/", handler.HelloHandler)
 
-	r.Run(":8080")
+	r.Run(os.Getenv("DB_USER"))
 }
