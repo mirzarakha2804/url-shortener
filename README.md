@@ -52,7 +52,7 @@ go run main.go
 The application will start on the port defined in your .env file (e.g., <http://localhost:8080>).
 
 ## Project Structure
-
+```
 ├── main.go # Main application entry point  
 ├── config/ # Database and application configuration  
 │ └── config.go  
@@ -70,3 +70,4 @@ The application will start on the port defined in your .env file (e.g., <http://
 ├── go.sum # Go module checksums  
 ├── .env # Environment variables file  
 └── README.md # Project documentation
+```
