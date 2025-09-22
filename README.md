@@ -62,10 +62,10 @@ The application will start on the port defined in your .env file (e.g., <http://
 ├── repository/ # Database interaction logic  
 │ └── repository.go  
 ├── pkg/  
-│ ├── errors/ # Custom error handling package  
-│ │ └── errors.go  
-│ └── logger/ # Centralized logging package  
-│ └── logger.go  
+│ ├──utils/ # Custom error handling package  
+│ │ └── conts.go
+│ │ └── decoder.go
+│ │ └── encoder.go
 ├── go.mod # Go module file  
 ├── go.sum # Go module checksums  
 ├── .env # Environment variables file  
