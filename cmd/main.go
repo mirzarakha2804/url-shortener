@@ -6,6 +6,7 @@ import (
 	"url-shortener/config"
 	"url-shortener/internal/handler"
 	"url-shortener/internal/repository"
+	"url-shortener/internal/service"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -23,11 +24,13 @@ func main() {
 	defer db.Close()
 	log.Println("✅ Database connection established")
 	// Setup repository
-	repository.NewURLRepository(db)
-
+	shortRepo := repository.NewURLRepository(db)
+	shortService := service.NewURLRepository(shortRepo)
+	shortHandler := handler.NewUrlHandler(shortService)
 	r := gin.Default()
 
 	r.GET("/", handler.HelloHandler)
+	r.POST("/shorten", shortHandler.ShortenURL)
 
-	r.Run(os.Getenv("DB_USER"))
+	r.Run(os.Getenv("APP_PORT"))
 }
